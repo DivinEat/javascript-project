@@ -1,0 +1,1 @@
+import { previous, next, go } from "./location.js";
