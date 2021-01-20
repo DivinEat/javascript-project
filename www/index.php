@@ -8,6 +8,8 @@
     <script type="module" src="modules/main.js"></script>
 </head>
 
-<body></body>
+<body>
+    <div id="root"></div>
+</body>
 
 </html>
