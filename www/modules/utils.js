@@ -1,3 +1,5 @@
+export {type_check_v1, type_check_v2, type_check};
+
 function type_check_v1(variable, type) {
     const typeOfVariable = typeof variable;
 
@@ -57,7 +59,7 @@ function type_check(variable, conf) {
             
         for (propKey in propsConf) {
             const propVariable = variable.propKey;
-            if (propVariable == null) { // et checker que c'est un objet ou un component on verra
+            if (propVariable == null) {
                 // péter une exception;
                 return false;
             }
@@ -67,29 +69,3 @@ function type_check(variable, conf) {
     }
     return true;
 }
-
-console.log(
-
-    type_check(
-
-        
-
-    )
-
-);
-
-
-
-// {
-// type: "object",
-// properties: {
-// prop1: { type: "number" },
-// prop2: { type: "string", enum: ["val1", "val2"] },
-// prop3: { type: "object", properties: { prop31: "number"} },
-// prop4: { type: "array", properties: [ "boolean"]}
-// }
-
-
-
-
-// console.log(type_check_v2({ e: 4 }, { type: "object", enum: [3, "test", { e: 4 }] }));
