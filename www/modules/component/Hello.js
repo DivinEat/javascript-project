@@ -6,12 +6,11 @@ export class Hello extends React.Component {
     }
 
     render () {
-        const returnValue = React.createElement(
+        return React.createElement(
             "div",
             { id: "container", class: "container" },
-            React.createElement("div", { id: "div1", class: "divClass" }, "Hello"),
-            React.createElement("div", { id: "div2", class: "divClass" }, "Div 2")
+            React.createElement("div", { id: "div1", class: "divClass", age: "22 ans"}, "Je m'appelle {{ age }}"),
+            React.createElement("button", { id: "div2", class: "divClass" }, "Div 2")
         );
-        return returnValue;
     }
 }
