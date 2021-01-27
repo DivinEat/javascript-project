@@ -3,11 +3,6 @@
 <body>
 <script type="module" src="modules/main.js"></script>
 <h1>Try to navigate in our single page applciation</h1>
-<ul>
-    <li><a href="/#/">Home</a></li>
-    <li><a href="/#/about">About page</a></li>
-    <li><a href="/#/products/12/specification/10">Go to the product 12</a></li>
-    <li><a href="/#/products/22/specification/12">Go to the product 22</a></li>
-</ul>
+<div id="root"></div>
 </body>
 </html>

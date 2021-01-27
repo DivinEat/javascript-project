@@ -41,7 +41,7 @@ export const React = {
         }
 
         display (newProperties) {
-            if (this.shouldUpdate(newProperties) || prevRender === null)
+            if (this.shouldUpdate(newProperties) || this.prevRender === null)
                 this.prevRender = this.render();    
             return this.prevRender;
         };
