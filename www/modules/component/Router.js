@@ -1,8 +1,15 @@
-class Router extends Component {
+import {React} from "../React.js";
+
+export class Router extends React.Component {
     state = {
-        path: "/home",
+        path: "/",
     };
-  
+
+    constructor() {
+        // this.setState({ path: window.location.pathname });
+        super();
+    }
+
     render() {
         return React.createElement("div", {}, [
             React.createElement(
@@ -18,6 +25,11 @@ class Router extends Component {
             path === "/home" && React.createElement(Home),
             path === "/about" && React.createElement(About)
         ]);
+    }
+
+    setState(properies) {
+        window.history.pushState(null, null, this.root + properies);
+        parent.setState(properies);
     }
 
     previous() {
