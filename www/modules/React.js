@@ -41,7 +41,7 @@ export const React = {
         }
 
         display (newProperties) {
-            if (this.shouldUpdate(newProperties) || prevRender === null)
+            if (this.shouldUpdate(newProperties) || this.prevRender === null)
                 this.prevRender = this.render();    
             return this.prevRender;
         };
@@ -49,14 +49,18 @@ export const React = {
         shouldUpdate (newProperties) {
             const compProps = JSON.stringify(this.properties) !== JSON.stringify(newProperties);
             const compState = JSON.stringify(this.state) !== JSON.stringify(this.prevState);
+
             return compProps || compState;
         };
 
-        setState(newState) {            
-            this.prevState = this.state;
-            this.state = newState;
+        setState(newState) {    
+            this.prevState = Object.assign({}, this.state);
+
+            this.state = Object.assign(this.state, newState);
+            
             const parentNode = this.prevRender.parentNode;
             const prevRender = this.prevRender;
+
             parentNode.replaceChild(this.display(this.properties), prevRender);
         }
 

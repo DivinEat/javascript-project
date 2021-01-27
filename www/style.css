@@ -1,0 +1,6 @@
+.countArea {
+    display:inline-block; 
+    height: 50px; 
+    width: 200px; 
+    background-color:grey;
+}
