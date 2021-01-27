@@ -4,8 +4,10 @@ Object.prototype.prop_access = function (strPath) {
 
     const path = strPath.split(".");
     let obj = this;
+
     path.forEach((key) => {
-        obj = obj[key];
+        if (obj[key] !== undefined || obj[key] !== null) 
+            obj = obj[key];
     });
 
     return obj;

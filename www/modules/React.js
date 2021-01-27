@@ -6,12 +6,15 @@ export const React = {
     createElement(type, properties, ...children) {
         children = [...children];
 
-        if (type === "div") {
+        if (typeof type === 'string') {
             const element = document.createElement(type);
-            console.log(Object.keys(properties));
+
             for (const attribute of Object.keys(properties)) {
-                console.log(attribute);
-                element.setAttribute(attribute, properties[attribute]);
+                if (/^on[A-Z]/.test(attribute)) {
+                    element.addEventListener(attribute.replace("on", "").toLowerCase(), properties[attribute]);
+                } else {
+                    element.setAttribute(attribute, properties[attribute]);
+                }
             }
 
             for (let child of children) {
@@ -22,7 +25,7 @@ export const React = {
             return element;
 
         } else {
-            const typeInstance = new type;
+            const typeInstance = new type(properties);
             if (!Utils.type_check(properties, typeInstance.propTypes)) throw new TypeError();
             return typeInstance.display(properties);
         }
@@ -30,18 +33,33 @@ export const React = {
 
     Component: class {
         state = {};
+        prevState = {};
+        prevRender = null;
 
-        constructor(properties) {
+        constructor (properties) {
             this.properties = properties;
         }
 
         display (newProperties) {
-            // this.shouldUpdate();
-            return this.render();
+            if (this.shouldUpdate(newProperties) || prevRender === null)
+                this.prevRender = this.render();    
+            return this.prevRender;
         };
 
         shouldUpdate (newProperties) {
-            return JSON.stringify(this.properties) !== JSON.stringify(newProperties);
+            const compProps = JSON.stringify(this.properties) !== JSON.stringify(newProperties);
+            const compState = JSON.stringify(this.state) !== JSON.stringify(this.prevState);
+            return compProps || compState;
         };
+
+        setState(newState) {            
+            this.prevState = this.state;
+            this.state = newState;
+            const parentNode = this.prevRender.parentNode;
+            const prevRender = this.prevRender;
+            parentNode.replaceChild(this.display(this.properties), prevRender);
+        }
+
+        render() {}
     },
 };
