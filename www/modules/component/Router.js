@@ -48,16 +48,4 @@ export class Router extends React.Component {
         
         super.setState(newState);
     }
-
-    previous() {
-        history.back();
-    }
-
-    next() {
-        history.forward();
-    }
-
-    go(url) {
-        location.assign(url);
-    }
 }
