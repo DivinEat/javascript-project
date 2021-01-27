@@ -28,17 +28,17 @@ export class Router extends React.Component {
                 },
                 "Counter"
             ),
-            this.findRoute(),
+            this.findRoute()
         );
     }
 
     findRoute() {
         switch (this.state.path) {
             case "/counter" :
-                return React.createElement(Counter, {})
+                return React.createElement(Counter, {});
                 break;
             default:
-                return React.createElement(Hello, {})
+                return React.createElement(Hello, {});
         }
     }
 

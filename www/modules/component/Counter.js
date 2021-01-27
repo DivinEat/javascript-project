@@ -20,7 +20,6 @@ export class Counter extends React.Component {
                 {
                     id: "addBtn",
                     class: "countArea",
-                    // style: "display:inline-block; height: 50px; width: 200px; background-color:grey;",
                     onClick: () => this.setState({counter: this.state.counter + 1})
                 },
                 "Cliquez ici"
@@ -46,6 +45,8 @@ export class Counter extends React.Component {
 
         if(this.state.time == 0 ) {
             clearInterval(this.state.timer);
+
+            // Affiche le nombre de clic par seconde et le bouton restart
             this.setState({counter: this.state.counter / 10});
         }
     }
