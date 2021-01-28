@@ -8,7 +8,8 @@ export class Counter extends React.Component {
             isLaunch: false,
             time: 10,
             buttonLabel: "Cliquez-ici",
-            counterLabel: "clics"
+            counterLabel: "clics",
+            disabled: false
         };
     }
 
@@ -18,11 +19,11 @@ export class Counter extends React.Component {
             { id: "counter", class: "counter" },
             React.createElement("span", { counter: this.state.counter, counterLabel: this.state.counterLabel}, "{{ counter }} {{ counterLabel }}"),
             React.createElement(
-                "div",
+                "button",
                 {
                     id: "counterArea",
                     class: "counterArea",
-                    onClick: () => this.setState({counter: this.state.counter + 1}),
+                    onClick: () => {if (!this.state.disabled) this.setState({counter: this.state.counter + 1})},
                     buttonLabel: this.state.buttonLabel
                 },
                 "{{ buttonLabel }}"
@@ -55,10 +56,12 @@ export class Counter extends React.Component {
             this.setState({
                 counter: this.state.counter / 10,
                 time: 10,
+                disabled: true,
                 isLaunch: false,
                 buttonLabel: "Recommencer",
                 counterLabel: "CPS"
             });
+            setTimeout(() => this.setState({disabled: false}), 1000)
         }
     }
 }
