@@ -9,8 +9,7 @@ export class Hello extends React.Component {
         return React.createElement(
             "div",
             { id: "container", class: "container" },
-            React.createElement("div", { id: "div1", class: "divClass", age: "22 ans"}, "Je m'appelle {{ age }}"),
-            React.createElement("button", { id: "div2", class: "divClass" }, "Div 2")
+            React.createElement("div", { id: "div1", class: "divClass", project: "Mini React"}, "Project : {{ project }}")
         );
     }
 }
