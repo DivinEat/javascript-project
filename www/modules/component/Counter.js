@@ -23,7 +23,7 @@ export class Counter extends React.Component {
                 {
                     id: "counterArea",
                     class: "counterArea",
-                    onClick: () => {if (!this.state.disabled) this.setState({counter: this.state.counter + 1})},
+                    onClick: () => {if (! this.state.disabled) this.click()},
                     buttonLabel: this.state.buttonLabel
                 },
                 "{{ buttonLabel }}"
@@ -32,19 +32,23 @@ export class Counter extends React.Component {
         );
     }
 
-    setState(newState) {
+    click () {
+        let newState = {counter: this.state.counter + 1};
+
         if (this.state.isLaunch == false) {
-            this.state.isLaunch = true;
-            this.state.buttonLabel = "Cliquez-ici";
-            this.state.counterLabel = "clics";
-            newState.counter = 1;
+            newState = {
+                isLaunch: true,
+                buttonLabel: "Cliquez-ici",
+                counterLabel: "clics",
+                counter: 1
+            }
 
             this.state.timer = setInterval(() => {
                 this.timer();
             }, 1000);
         }
 
-        super.setState(newState);
+        this.setState(newState);
     }
 
     timer() {
