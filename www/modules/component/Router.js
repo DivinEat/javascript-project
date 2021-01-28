@@ -14,28 +14,32 @@ export class Router extends React.Component {
     render() {
         return React.createElement(
             "div",
-            { id: "nav", class: "nav" },
+            { id: "", class: "" },
             React.createElement(
-                "button",
-                {
-                    onClick: () => this.setState({ path: "/home" })
-                },
-                "Home"
-            ),
-            React.createElement(
-                "button",
-                {
-                    onClick: () => this.setState({ path: "/counter" })
-                },
-                "Counter"
-            ),
-            React.createElement(
-                "button",
-                {
-                    class: "rigth",
-                    onClick: () => this.setState({ path: "/about" })
-                },
-                "About"
+                "nav",
+                { id: "nav", class: "nav" },
+                React.createElement(
+                    "button",
+                    {
+                        onClick: () => this.setState({ path: "/home" })
+                    },
+                    "Home"
+                ),
+                React.createElement(
+                    "button",
+                    {
+                        onClick: () => this.setState({ path: "/counter" })
+                    },
+                    "Counter"
+                ),
+                React.createElement(
+                    "button",
+                    {
+                        class: "rigth",
+                        onClick: () => this.setState({ path: "/about" })
+                    },
+                    "About"
+                )
             ),
             this.findRoute()
         );
