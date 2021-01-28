@@ -8,7 +8,6 @@
         <title>Mini React</title>
     </head>
     <body>
-        <h1>Mini React - ESGI</h1>
         <div id="root"></div>
     </body>
 </html>

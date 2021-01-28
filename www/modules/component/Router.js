@@ -1,6 +1,7 @@
 import {React} from "../React.js";
 import {Counter} from "./Counter.js";
 import {Hello} from "./Hello.js";
+import {About} from "./About.js";
 
 export class Router extends React.Component {
     constructor(properties) {
@@ -13,7 +14,7 @@ export class Router extends React.Component {
     render() {
         return React.createElement(
             "div",
-            {},
+            { id: "nav", class: "nav" },
             React.createElement(
                 "button",
                 {
@@ -28,6 +29,14 @@ export class Router extends React.Component {
                 },
                 "Counter"
             ),
+            React.createElement(
+                "button",
+                {
+                    class: "rigth",
+                    onClick: () => this.setState({ path: "/about" })
+                },
+                "About"
+            ),
             this.findRoute()
         );
     }
@@ -36,6 +45,9 @@ export class Router extends React.Component {
         switch (this.state.path) {
             case "/counter" :
                 return React.createElement(Counter, {});
+                break;
+            case "/about" :
+                return React.createElement(About, {});
                 break;
             default:
                 return React.createElement(Hello, {});
