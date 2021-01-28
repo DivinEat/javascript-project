@@ -13,7 +13,7 @@ export class Router extends React.Component {
     render() {
         return React.createElement(
             "div",
-            {},
+            { id: "nav", class: "nav" },
             React.createElement(
                 "button",
                 {
@@ -27,6 +27,14 @@ export class Router extends React.Component {
                     onClick: () => this.setState({ path: "/counter" })
                 },
                 "Counter"
+            ),
+            React.createElement(
+                "button",
+                {
+                    class: "rigth",
+                    onClick: () => this.setState({ path: "/about" })
+                },
+                "About"
             ),
             this.findRoute()
         );

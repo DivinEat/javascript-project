@@ -13,13 +13,13 @@ export class Counter extends React.Component {
     render () {
         return React.createElement(
             "div",
-            { id: "counterContainer", class: "counter" },
+            { id: "counter", class: "counter" },
             React.createElement("span", { counter: this.state.counter }, "{{ counter }} clics"),
             React.createElement(
                 "div",
                 {
-                    id: "addBtn",
-                    class: "countArea",
+                    id: "counterArea",
+                    class: "counterArea",
                     onClick: () => this.setState({counter: this.state.counter + 1})
                 },
                 "Cliquez ici"
