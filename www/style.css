@@ -17,6 +17,14 @@ body {
 	height: 100%;
 }
 
+#root .container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 90%
+}
+
 /* NAV */
 #root .nav {
 	list-style-type: none;
@@ -48,13 +56,6 @@ body {
 /* END NAV */
 
 /* COUNTER */
-#root .counter {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	height: 90%
-}
 
 #root .counter .counterArea {
 	display: flex;
@@ -80,3 +81,11 @@ body {
 #root .about {
 	text-align: center;
 }
+/* END ABOUT */
+
+/* HOME */
+#root .home {
+	text-align: center;
+}
+
+/* END HOME */

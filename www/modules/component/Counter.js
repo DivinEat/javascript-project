@@ -16,7 +16,7 @@ export class Counter extends React.Component {
     render () {
         return React.createElement(
             "div",
-            { id: "counter", class: "counter" },
+            { id: "counter", class: "container counter" },
             React.createElement("span", { counter: this.state.counter, counterLabel: this.state.counterLabel}, "{{ counter }} {{ counterLabel }}"),
             React.createElement(
                 "button",
